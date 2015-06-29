@@ -5,7 +5,7 @@
  *      Author: sirius
  */
 
-#include "routegame.h"
+#include "rgl.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
 	strategy_profile routinggame[nStrategy][nStrategy];
 	routing_path selectedpath[nStrategy];
-	char output_filename[]="routegame";
+	char output_filename[]="routing_game";
 	/*
 	int nP = routing_game_main(nStrategy,Policy,T,uLB,pathcost,routinggame,selectedpath);
 

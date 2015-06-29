@@ -1,9 +1,0 @@
-AS/Peer012
-0(10,16)(19,14)(2686725,1978729134)
-1(10,19)(19,17)(2686725,1978729137)
-2(2686653,1978115148)(2686662,1978115146)(5373368,-338123030)
-Pmin = 0
- Game's parameter: Policy = 0 Threshold = 0.000000 Use load balancing = 0 
-Selected links: 
-Router selects 1 links 
-Link 0 ingress cost = 1 egress cost = 9 -- Percent load = 1.000000 

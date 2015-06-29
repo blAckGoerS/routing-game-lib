@@ -1,0 +1,18 @@
+Local/Peer   0          1          2        
+  0       (17,20)    (21,13)*   (15,19)*
+  1       (13,26)    (17,19)    (11,25) 
+  2       (13,25)    (17,18)*   (11,24)*
+
+Potential value for each strategy profile 
+  11    4    10  
+  7    0    6  
+  7    0    6  
+Minimum potential value = 0 
+
+Game's parameter: Coordination policy = 1 Threshold = 0.000000 Use load balancing = 0 
+ClubmedRouter in local AS selects  
+ Path 0 ingress cost = 5 egress cost = 12 -- Percent load = 0.500000 
+ Path 2 ingress cost = 3 egress cost = 8 -- Percent load = 0.500000 
+CoreRouter in peering AS selects 
+ Path 1 ingress cost = 10 egress cost = 9 -- Percent load = 0.500000 
+ Path 2 ingress cost = 9 egress cost = 15 -- Percent load = 0.500000 
