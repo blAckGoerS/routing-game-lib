@@ -1,5 +1,4 @@
-# routing_game_lib
-The routing game library 
+# The routing game library 
 
 OVERVIEW
 --------
