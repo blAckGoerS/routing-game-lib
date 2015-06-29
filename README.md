@@ -51,12 +51,12 @@ HOW TO USE
 
 		struct strategy_profile
 		{
-			unsigned int	localcost;	// IGP routing cost
-			unsigned int	peercost; 	// IGP routing cost at peer site
-			int		pvalue; 	// potential value
-			short		eq; 		// equilibria or not ? 1 YES 0 NO
-			short		pe;  		// pareto optimum or not ? 1 YES 0 NO
-			short		status;      	// selected or not? 1 YES 0 NO
+			unsigned int localcost;	// IGP routing cost
+			unsigned int peercost; 	// IGP routing cost at peer site
+			int pvalue;		// potential value
+			short eq;		// equilibria or not ? 1 YES 0 NO
+			short pe; 		// pareto optimum or not ? 1 YES 0 NO
+			short status;		// selected or not? 1 YES 0 NO
 		}
 
 		SELECTEDPATH: is an empty array of routing_path type - routing_path is a data type to store paths selected as solutions by the routing game.
@@ -66,10 +66,10 @@ HOW TO USE
 			int     id;
 			int     ingresscost;
 			int     egresscost;
-			int     freq;           	// frequency of occurrence in the array
-			int     pvalue;			// potential value
-			int     status;             	// 1 selected, 0 not selected
-			float   tload;           	// computed traffic load on this path
+			int     freq;		// frequency of occurrence in the array
+			int     pvalue;		// potential value
+			int     status;		// 1 selected, 0 not selected
+			float   tload;		// computed traffic load on this path
 		}
 
 	The output of routing_game_main() is therefore recorded in ROUTINGGAME and SELECTED arrays. 
