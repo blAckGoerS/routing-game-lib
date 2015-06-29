@@ -28,7 +28,9 @@ HOW TO USE
 * routing_game_main(int N, int P, float T, int U,path_cost PATHCOST[],strategy_profile ROUTINGGAME[n][n],routing_path SELECTEDPATH[]) 
 
 	This is the core function of the library. It combines multiple tasks (reading input cost array, loading configuration parameters, building routing game, computing payoff, calculating potential value, finding equilibrium strategy profiles and weighting selected profiles) into one function call. 
+	
 	The input parameters of this function include: 
+	
 		N : an integer number indicating the number of strategy available for each player (note that the number of strategy is the same for both players).
 		P : an integer number ranging from 0 to 3 and representing the coordination policy used in the routing game.
 		T : a real number, the potential threshold applied to elect routing game equilibria.
@@ -39,7 +41,7 @@ HOW TO USE
 		struct path_cost
 		{
 			unsigned int path_id;
-      			unsigned int egresscost;           // ingress routing cost at local node  
+			unsigned int egresscost;           // ingress routing cost at local node  
 			unsigned int Pingresscost;         // ingress routing cost at external node 
 			unsigned int Pegresscost;          // egress routing cost at local node  
 			unsigned int ingresscost;          // ingress routing cost at external node
@@ -49,25 +51,25 @@ HOW TO USE
 
 		struct strategy_profile
 		{
-			unsigned int 	localcost; 		// IGP routing cost
-			unsigned int 	peercost; 		// IGP routing cost at peer site
-			int		      pvalue; 	      // potential value
-			short       eq;  			      // equilibria or not ? 1 YES 0 NO
-			short       pe;  			      // pareto optimum or not ? 1 YES 0 NO
-			short       status;         // selected or not? 1 YES 0 NO. Determined regarding the routing policy
+			unsigned int 	localcost;	// IGP routing cost
+			unsigned int 	peercost; 	// IGP routing cost at peer site
+			int		pvalue; 	// potential value
+			short		eq; 		// equilibria or not ? 1 YES 0 NO
+			short		pe;  		// pareto optimum or not ? 1 YES 0 NO
+			short		status;      	// selected or not? 1 YES 0 NO
 		}
 
 		SELECTEDPATH: is an empty array of routing_path type - routing_path is a data type to store paths selected as solutions by the routing game.
 		
 		struct routing_path
-    		{
+		{
 			int     id;
 			int     ingresscost;
 			int     egresscost;
-			int     freq;                     	// frequency of occurrence in the array
-			int     pvalue;				              // potential value
-			int     status;                  	  // 1 selected, 0 not selected
-			float   tload;              		    // computed traffic load on this path
+			int     freq;           	// frequency of occurrence in the array
+			int     pvalue;			// potential value
+			int     status;             	// 1 selected, 0 not selected
+			float   tload;           	// computed traffic load on this path
 		}
 
 	The output of routing_game_main() is therefore recorded in ROUTINGGAME and SELECTED arrays. 
