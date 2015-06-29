@@ -39,7 +39,7 @@ HOW TO USE
 		struct path_cost
 		{
 			unsigned int path_id;
-      unsigned int egresscost;           // ingress routing cost at local node  
+      			unsigned int egresscost;           // ingress routing cost at local node  
 			unsigned int Pingresscost;         // ingress routing cost at external node 
 			unsigned int Pegresscost;          // egress routing cost at local node  
 			unsigned int ingresscost;          // ingress routing cost at external node
@@ -55,13 +55,12 @@ HOW TO USE
 			short       eq;  			      // equilibria or not ? 1 YES 0 NO
 			short       pe;  			      // pareto optimum or not ? 1 YES 0 NO
 			short       status;         // selected or not? 1 YES 0 NO. Determined regarding the routing policy
-
 		}
 
 		SELECTEDPATH: is an empty array of routing_path type - routing_path is a data type to store paths selected as solutions by the routing game.
 		
 		struct routing_path
-    {
+    		{
 			int     id;
 			int     ingresscost;
 			int     egresscost;
