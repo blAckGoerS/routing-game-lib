@@ -40,19 +40,19 @@ HOW TO USE
 
 		struct path_cost
 		{
-			unsigned int path_id;
-			unsigned int egresscost;           // ingress routing cost at local node  
-			unsigned int Pingresscost;         // ingress routing cost at external node 
-			unsigned int Pegresscost;          // egress routing cost at local node  
-			unsigned int ingresscost;          // ingress routing cost at external node
+			unsigned int 	path_id;
+			unsigned int 	egresscost;           // ingress routing cost at local node  
+			unsigned int 	Pingresscost;         // ingress routing cost at external node 
+			unsigned int 	Pegresscost;          // egress routing cost at local node  
+			unsigned int 	ingresscost;          // ingress routing cost at external node
 		}
 
 		ROUTINGGAME: an empty 2D array of strategy_profile type - strategy_profile is a data type to store the payoff and potential value associated with each strategy profile. ROUTINGGAME[i][j] is a representation of strategy profile (i,j). Routing_game_main() maintains and updates this array with payoff and potential value for every strategy profiles.
 
 		struct strategy_profile
 		{
-			unsigned int 	localcost;	// IGP routing cost
-			unsigned int 	peercost; 	// IGP routing cost at peer site
+			unsigned int	localcost;	// IGP routing cost
+			unsigned int	peercost; 	// IGP routing cost at peer site
 			int		pvalue; 	// potential value
 			short		eq; 		// equilibria or not ? 1 YES 0 NO
 			short		pe;  		// pareto optimum or not ? 1 YES 0 NO
