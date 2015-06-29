@@ -5,7 +5,7 @@ OVERVIEW
 
 * The routing game library (RGL) is an open source library to compute equilibrium routing solutions in strategic routing settings, i.e., situations where two independent entities (for example, routers, devices) send traffic to each other using multiple paths or interfaces.
 
-By calling the built-in functions provided by the RGL, one can build a 2-player routing game from an input route cost array, and then compute the routing decision (for example, paths, egress interfaces) determined by the corresponding non-cooperative game equilibrium profiles. The equilibrium computation methods available are those presented in [1].
+* By calling the built-in functions provided by the RGL, one can build a 2-player routing game from an input route cost array, and then compute the routing decision (for example, paths, egress interfaces) determined by the corresponding non-cooperative game equilibrium profiles. The equilibrium computation methods available are those presented in [1].
 
 * The main functions of the routing game library are :
 	+ Encode/decode cost arrays/components into/from a 32-bit value, obtained by function call or a configuration file
