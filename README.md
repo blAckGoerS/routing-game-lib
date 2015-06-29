@@ -52,11 +52,11 @@ HOW TO USE
 		struct strategy_profile
 		{
 			unsigned int localcost;	// IGP routing cost
-			unsigned int peercost; 	// IGP routing cost at peer site
-			int pvalue;		// potential value
-			short eq;		// equilibria or not ? 1 YES 0 NO
-			short pe; 		// pareto optimum or not ? 1 YES 0 NO
-			short status;		// selected or not? 1 YES 0 NO
+			unsigned int peercost;	// IGP routing cost at peer site
+			int 	pvalue; 	// potential value
+			short 	eq; 		// equilibria or not ? 1 YES 0 NO
+			short 	pe; 		// pareto optimum or not ? 1 YES 0 NO
+			short 	status; 	// selected or not? 1 YES 0 NO
 		}
 
 		SELECTEDPATH: is an empty array of routing_path type - routing_path is a data type to store paths selected as solutions by the routing game.
