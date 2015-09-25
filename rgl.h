@@ -84,6 +84,8 @@ int routing_game_output_file(char filename[],int nS, strategy_profile g[nS][nS],
 void routing_game_result_all(int n, int p, float t, int u,path_cost pathcost[],strategy_profile routinggame[n][n],routing_path selectedpath[],routing_path peer_selectedpath[]);
 int routing_game_output_file_all(char filename[],int n, strategy_profile g[n][n],routing_path selectedpath[],routing_path peer_selectedpath[]);
 
+void routing_game_all_policy(int n, int p, float t, int u,path_cost pathcost[],strategy_profile routinggame[n][n],routing_path selectedpath[],routing_path peer_selectedpath[]);
+
 void decode_five(unsigned int MED, coord_cost5 *r);
 unsigned int encode_five(coord_cost5 *rc);
 

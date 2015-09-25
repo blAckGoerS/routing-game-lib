@@ -698,6 +698,7 @@ int maxPvalue(int n,routing_path path[n])
 }
 
 //Calculate load on each path according to the potential value and threshold
+/*
 void loadCal(int n,routing_path path[])
 {
 	int i,j;
@@ -717,6 +718,7 @@ void loadCal(int n,routing_path path[])
 		int x = maxPvalue(n,path);
 		// if potential value of selected path > T, current formula {(1 + T - potential_value)/total} result in a negative load
 		// so we replace T by the max potential value (if exist)
+		//  potential value of selected path > T ~ selected profile is not an equilibrium => applying Pareto Frontier or Jumping policy
 		for (i=0;i<n;i++)
 			if(path[i].status)
 			{
@@ -732,6 +734,41 @@ void loadCal(int n,routing_path path[])
 				path[i].tload = path[i].tload/total;
 	}
 }
+*/
+
+
+void loadCal(int n,routing_path path[])
+{
+	int i,j;
+	if ( pathCount(n,path) == 1) // only one path is selected
+	{
+		for (i=0;i<n;i++)
+			if(path[i].status)
+			{
+				path[i].tload = 1;
+				break;
+			}
+	}
+	else  // more than one path is selected
+	{
+		// there is a relationship between traffic loaded and potential value
+		float total = 0;
+		for (i=0;i<n;i++)
+			if(path[i].status)
+			{
+				path[i].tload = 1 + T - path[i].pvalue;
+				for (j=i+1;j<n;j++)
+					if ( path[i].id == path[j].id)
+						path[i].tload = path[i].tload + (1 + T - path[j].pvalue) ;
+				total = total + path[i].tload;
+			}
+
+		for (i=0;i<n;i++)
+			if(path[i].status)
+				path[i].tload = path[i].tload/total;
+	}
+}
+
 
 //When not enable uLB, equally distributed load among selected links
 void equalLoad(int n,routing_path path[n])
@@ -748,12 +785,12 @@ void loadbalacing(strategy_profile g[N][N],int n1, int n2,routing_path local_sel
 	remove_duplicated_selection(n1,local_selectedpath);
 	remove_duplicated_selection(n2,peer_selectedpath);
 
-	if (uLB)  //sub-flow load balancing
+	if (uLB && Policy == 0)  // load balancing according to the potential value of selected strategy , this special mode of LB only applicable for NEMP
 	{
 		loadCal(n1,local_selectedpath);
 		loadCal(n2,peer_selectedpath);
 	}
-	else 	//normal load balancing
+	else 	// equal load balancing
 	{
 		equalLoad(n1,local_selectedpath);
 		equalLoad(n2,peer_selectedpath);
@@ -772,7 +809,8 @@ int path_selection(strategy_profile g[N][N],path_cost s[],routing_path selectedp
 			if (g[i][j].status)
 			{
 				k = (p == LOCAL) ? i : j;  //if (p == 1) k=i; else k=j;
-				selectedpath[npath].id 		= k;
+				//selectedpath[npath].id 		= k;
+				selectedpath[npath].id 		= s[k].path_id; // correct on 20th August - to make the correct link between game route cost and selected path array
 				selectedpath[npath].freq	= 1;
 				selectedpath[npath].tload 	= 0;
 				selectedpath[npath].status 	= 1;
